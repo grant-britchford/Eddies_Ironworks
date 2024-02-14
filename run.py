@@ -42,20 +42,13 @@ def validate_data(values):
     
     return True
 
-def update_sales_worksheet(data):
-    """ update sales worksheet with new row data """
-    print("Updating sales...\n")
-    sales_worksheet = SHEET.worksheet("Weekly_Sales")
-    sales_worksheet.append_row(data)
-    print("Sales updated successfully.\n")
-
-def update_surplus_worksheet(data):
-    """ update surplus worksheet with new row data """
-    print("Updating surplus...\n")
-    surplus_worksheet = SHEET.worksheet("Daily_Surplus")
-    surplus_worksheet.append_row(data)
-    print("Surplus updated successfully.\n")
-        
+def update_worksheet(data, worksheet):
+    """ function to update the correct worksheet """
+    print(f"Updating {worksheet} worksheet")
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row(data)
+    print(f"{worksheet} worksheet updated successfully") 
+           
 def calculate_surplus_data(sales_row):
     """ compare sales and stock to define surplusb """
     print("Calculating surplus data...\n")
@@ -73,9 +66,9 @@ def main():
     """ program functions """
     data = get_sales_data()
     sales_data = [int(num) for num in data]
-    update_sales_worksheet(sales_data)
+    update_worksheet(sales_data, "Weekly_Sales")
     new_surplus_data = calculate_surplus_data(sales_data)
-    update_surplus_worksheet(new_surplus_data)
+    update_worksheet(new_surplus_data, "Daily_Surplus")
     
 print("Welcome to Eddies Ironworks automation suite")
 main()
