@@ -61,6 +61,29 @@ def calculate_surplus_data(sales_row):
         surplus_data.append(surplus)
         
     return surplus_data
+
+def get_last_5_entries_sales():
+    """ merge sales data into stock data function """
+    sales = SHEET.worksheet("Weekly_Sales")
+    columns = []
+    for ind in range(1, 10):
+        column = sales.col_values(ind)
+        columns.append(column[-5:])
+    
+    return columns
+    
+def calculate_stock_data(data):
+    """ calculate stock average, adding 20% """
+    print("Calculating stock data...\n")
+    
+    new_stock_data = []
+    for column in data:
+        int_column = [int(num) for num in column]
+        average = sum(int_column) / len(int_column)
+        stock_num = average * 2.0
+        new_stock_data.append(round(stock_num))
+        
+    return new_stock_data
     
 def main():
     """ program functions """
@@ -69,6 +92,10 @@ def main():
     update_worksheet(sales_data, "Weekly_Sales")
     new_surplus_data = calculate_surplus_data(sales_data)
     update_worksheet(new_surplus_data, "Daily_Surplus")
+    sales_columns = get_last_5_entries_sales()
+    stock_data = calculate_stock_data(sales_columns)
+    update_worksheet(stock_data, "Stock_View")
+    
     
 print("Welcome to Eddies Ironworks automation suite")
 main()
