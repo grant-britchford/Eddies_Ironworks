@@ -73,7 +73,7 @@ def get_last_5_entries_sales():
     return columns
     
 def calculate_stock_data(data):
-    """ calculate stock average, adding 30% """
+    """ calculate stock average, adding 10% """
     print("Calculating stock data...\n")
     new_stock_data = []
     
