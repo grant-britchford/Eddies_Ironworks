@@ -14,21 +14,21 @@ SHEET = GSPREAD_CLIENT.open('The Ironworks')
 
 def get_sales_data():
     """ sales data input from user """
-    print("Please enter sales data.")
-    print("Data should be nine numbers, separated by commas.")
-    print("Example: 10,20,30,40,50,60,70,80,90\n")
-    
-    data_str = input("Enter data here:\n")
-    
-    sales_data = data_str.split(",")
-    
-    if validate_data(sales_data):
-        print("Data is Valid")
-        breakpoint
+    while True:
+        print("Please enter sales data.")
+        print("Data should be nine numbers, separated by commas.")
+        print("Example: 10,20,30,40,50,60,70,80,90\n")
         
-    return sales_data
+        data_str = input("Enter data here:\n")
     
-
+        sales_data = data_str.split(",")
+    
+        if validate_data(sales_data):
+            print("Data is Valid")
+            breakpoint
+            
+            return sales_data
+    
 def validate_data(values):
     """ create value error if not enough numbers """
     try:
