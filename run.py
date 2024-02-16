@@ -1,6 +1,5 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -19,7 +18,7 @@ def get_sales_data():
     print("Data should be nine numbers, separated by commas.")
     print("Example: 10,20,30,40,50,60,70,80,90\n")
     
-    data_str = input("Enter data here:")
+    data_str = input("Enter data here:\n")
     
     sales_data = data_str.split(",")
     
@@ -80,7 +79,7 @@ def calculate_stock_data(data):
     for column in data:
         int_column = [int(num) for num in column]
         average = sum(int_column) / len(int_column)
-        stock_num = average * 2.0
+        stock_num = average * 3.3
         new_stock_data.append(round(stock_num))
         
     return new_stock_data
