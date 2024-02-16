@@ -36,7 +36,7 @@ def validate_data(values):
                 f"Exactly 9 values needed, you entered {len(values)}"
             )
     except ValueError as e:
-        print(f"Invalid data: {e}, Please ReEnter.\n")
+        print(f"Invalid data: {e}, Please try again.\n")
         return False
     
     return True
@@ -51,7 +51,7 @@ def update_worksheet(data, worksheet):
 def calculate_surplus_data(sales_row):
     """ compare sales and stock to define surplusb """
     print("Calculating surplus data...\n")
-    stock = SHEET.worksheet("Stock_View").get_all_values()
+    stock = SHEET.worksheet("Stock").get_all_values()
     stock_row = stock[-1]
     
     surplus_data = []
@@ -63,7 +63,7 @@ def calculate_surplus_data(sales_row):
 
 def get_last_5_entries_sales():
     """ merge sales data into stock data function """
-    sales = SHEET.worksheet("Weekly_Sales")
+    sales = SHEET.worksheet("Sales")
     
     columns = []
     for ind in range(1, 10):
@@ -80,7 +80,7 @@ def calculate_stock_data(data):
     for column in data:
         int_column = [int(num) for num in column]
         average = sum(int_column) / len(int_column)
-        stock_num = average * 3.3
+        stock_num = average * 1.1
         new_stock_data.append(round(stock_num))
         
     return new_stock_data
@@ -89,13 +89,12 @@ def main():
     """ program functions """
     data = get_sales_data()
     sales_data = [int(num) for num in data]
-    update_worksheet(sales_data, "Weekly_Sales")
+    update_worksheet(sales_data, "Sales")
     new_surplus_data = calculate_surplus_data(sales_data)
-    update_worksheet(new_surplus_data, "Daily_Surplus")
+    update_worksheet(new_surplus_data, "Surplus")
     sales_columns = get_last_5_entries_sales()
     stock_data = calculate_stock_data(sales_columns)
-    update_worksheet(stock_data, "Stock_View")
-    
+    update_worksheet(stock_data, "Stock")
     
 print("Welcome to Eddies Ironworks automation suite")
 main()
