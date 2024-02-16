@@ -24,10 +24,10 @@ def get_sales_data():
         sales_data = data_str.split(",")
     
         if validate_data(sales_data):
-            print("Data is Valid")
-            breakpoint
-            
-            return sales_data
+            print("Data is Valid!")
+            break
+        
+    return sales_data
     
 def validate_data(values):
     """ create value error if not enough numbers """
@@ -72,10 +72,10 @@ def get_last_5_entries_sales():
     return columns
     
 def calculate_stock_data(data):
-    """ calculate stock average, adding 20% """
+    """ calculate stock average, adding 30% """
     print("Calculating stock data...\n")
-    
     new_stock_data = []
+    
     for column in data:
         int_column = [int(num) for num in column]
         average = sum(int_column) / len(int_column)
