@@ -18,9 +18,7 @@ def get_sales_data():
         print("Please enter sales data.")
         print("Data should be nine numbers, separated by commas.")
         print("Example: 10,20,30,40,50,60,70,80,90\n")
-        
         data_str = input("Enter data here:\n")
-    
         sales_data = data_str.split(",")
     
         if validate_data(sales_data):
@@ -34,7 +32,9 @@ def validate_data(values):
     try:
         [int(value) for value in values]
         if len(values) != 9:
-            raise ValueError(f"Exactly 9 values needed, you entered {len(values)}")
+            raise ValueError(
+                f"Exactly 9 values needed, you entered {len(values)}"
+            )
     except ValueError as e:
         print(f"Invalid data: {e}, Please ReEnter.\n")
         return False
@@ -43,10 +43,10 @@ def validate_data(values):
 
 def update_worksheet(data, worksheet):
     """ function to update the correct worksheet """
-    print(f"Updating {worksheet} worksheet")
+    print(f"Updating {worksheet} worksheet...\n")
     worksheet_to_update = SHEET.worksheet(worksheet)
     worksheet_to_update.append_row(data)
-    print(f"{worksheet} worksheet updated successfully") 
+    print(f"{worksheet} worksheet updated successfully\n") 
            
 def calculate_surplus_data(sales_row):
     """ compare sales and stock to define surplusb """
@@ -64,6 +64,7 @@ def calculate_surplus_data(sales_row):
 def get_last_5_entries_sales():
     """ merge sales data into stock data function """
     sales = SHEET.worksheet("Weekly_Sales")
+    
     columns = []
     for ind in range(1, 10):
         column = sales.col_values(ind)
