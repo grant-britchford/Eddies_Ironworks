@@ -36,7 +36,7 @@ def validate_data(values):
         if len(values) != 9:
             raise ValueError(f"9 values needed, you entered {len(values)}")
     except ValueError as e:
-        print(f"Invalid data: {e}, Please re-enter.\n")
+        print(f"Invalid data: {e}, Please ReEnter.\n")
         return False
     
     return True
