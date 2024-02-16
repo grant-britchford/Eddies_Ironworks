@@ -6,4 +6,4 @@ __pycache__/
 *.py[cod]
 node_modules/
 .github/
-ironworks-414114-a4b4bfe9cf94.json
+creds.json
