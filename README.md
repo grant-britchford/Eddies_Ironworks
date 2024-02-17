@@ -1,5 +1,6 @@
 # Eddies Ironworks
 ## Contents
+- Demo
 - Criteria
 - Technologies
 - Testing
@@ -7,6 +8,11 @@
 - Deployment
 - Credits
 - Acknoeledgements
+
+## Demo
+![Am I Responsive](https://github.com/grant-britchford/Eddies_Ironworks/assets/145594323/758242e6-f3f5-4fca-b5bd-fef442c87ac7)
+
+The live link is: https://eddiesironworks-de86615814ee.herokuapp.com/
 
 ## Criteria
 
