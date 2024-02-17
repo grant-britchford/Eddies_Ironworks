@@ -26,15 +26,13 @@ I have created a back end data system for an Ironworks company who fabricate and
 - GitHub was used to run and debug the code.
 
 ## Testing
-
-Testing was carried out as the Python code was put in to make sure that it all worked as it should.
+Testing was carried during programming to make sure the code was working the right way. After completion the code was then run through the PEP8 Python Validator which came back clean apart from some white space and line spacing queries.
+![python Linter Validation](https://github.com/grant-britchford/Eddies_Ironworks/assets/145594323/2a13c5ab-42e4-4e83-97b2-859198ac5258)
 
 ## Bugs
-
 All bugs found during the programming stages were dealt with and corrected as the program was run.
 
 ## Deployment
-
 To deploy the app you must create an Heruko account on Heruko.com. Once this is done, then please follow these steps.
 
 - Log in to your Heruko account and in your dashboard click on Ctreate new app.
@@ -50,11 +48,9 @@ To deploy the app you must create an Heruko account on Heruko.com. Once this is 
 - Once the app is successfully built you will receive a 'App built successfully' message with a view button underneath. Click on this to go the runnable app and make sure all works as normal.
 
 ## Credits
-
 - Code Institute and their walkthrough videos.
 
 ## Acknowledgements
-
 - Code Institute for their tutition.
 - My Mentor Oluwafemi Medale, as always.
   
